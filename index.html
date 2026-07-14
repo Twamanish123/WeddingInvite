@@ -201,6 +201,11 @@
     text-shadow:0 2px 10px rgba(0,0,0,.45);
   }
   .veil-sub{font-size:1.1rem;color:var(--gold-light);letter-spacing:.08em;margin-bottom:26px}
+  .veil-guest{display:none;font-style:italic;font-size:1.05rem;color:#ffe9c9;margin:-14px 0 24px}
+  body.has-guest .veil-guest{display:block}
+  .guest-greet{display:none;font-family:'Great Vibes',cursive;font-size:1.9rem;color:var(--gold-light);
+               margin:16px 0 -4px;text-shadow:0 2px 10px rgba(0,0,0,.35)}
+  body.has-guest .guest-greet{display:block}
   .open-btn{
     font-family:'Marcellus',serif;font-size:.78rem;letter-spacing:.3em;text-transform:uppercase;
     color:var(--gold-light);background:transparent;border:1px solid var(--gold);
@@ -248,6 +253,7 @@
   <div class="veil-center">
     <div class="monogram">A&nbsp;♥&nbsp;T</div>
     <p class="veil-sub">॥ শুভ বিবাহ ॥</p>
+    <p class="veil-guest" id="veil-guest"></p>
     <button class="open-btn" type="button">Tap to Open Invitation</button>
   </div>
 </div>
@@ -306,6 +312,8 @@
     <p class="blessing-assamese fade d1">॥ শুভ বিবাহ ॥</p>
 
     <div class="divider fade d2"><span class="line"></span><span class="dot">✦</span><span class="line r"></span></div>
+
+    <p class="guest-greet fade d2" id="guest-greet"></p>
 
     <p class="invite-line fade d2">
       Together with our families, we joyfully invite you
@@ -388,6 +396,17 @@
       s.textContent = pad(Math.floor(diff/1e3)%60);
     }
     var t = setInterval(tick, 1000); tick();
+  })();
+
+  /* ── personalized guest greeting (?guest=Name) ── */
+  (function(){
+    var g = new URLSearchParams(location.search).get('guest');
+    if (!g) return;
+    g = g.trim().slice(0, 60);
+    if (!g) return;
+    document.getElementById('guest-greet').textContent = 'Dear ' + g + ',';
+    document.getElementById('veil-guest').textContent = 'An invitation for ' + g;
+    document.body.classList.add('has-guest');
   })();
 
   /* ── opening veil + music ── */
