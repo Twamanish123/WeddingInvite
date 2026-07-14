@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anushuwa &amp; Twamanish — Wedding Invitation</title>
+
+<!-- WhatsApp / social link preview (update og:image & og:url after deploying) -->
+<meta property="og:title" content="Anushuwa ♥ Twamanish — Wedding Invitation">
+<meta property="og:description" content="With the blessings of Maa Durga, we invite you to celebrate our wedding — 13th December 2026, Lakhimpur, Assam.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://YOUR-SITE-NAME.azurewebsites.net/">
+<meta property="og:image" content="https://YOUR-SITE-NAME.azurewebsites.net/preview.png">
+<meta name="theme-color" content="#7a0c1e">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Marcellus&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --maroon:#5c0a14;
+    --deep-red:#7a0c1e;
+    --red:#a4133c;
+    --crimson:#c9184a;
+    --gold:#d9a441;
+    --gold-light:#f0cf8a;
+    --cream:#fff6ea;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Cormorant Garamond',serif;
+    color:var(--cream);
+    background:
+      radial-gradient(ellipse at 50% -10%, #9e1230 0%, transparent 55%),
+      radial-gradient(ellipse at 50% 110%, #8a0f26 0%, transparent 55%),
+      linear-gradient(180deg, var(--maroon) 0%, var(--deep-red) 45%, var(--maroon) 100%);
+    min-height:100vh;
+    text-align:center;
+    overflow-x:hidden;
+  }
+  .page{
+    max-width:520px;
+    margin:0 auto;
+    padding:34px 22px 60px;
+    position:relative;
+  }
+  /* thin gold frame */
+  .frame{
+    border:1px solid rgba(217,164,65,.55);
+    outline:1px solid rgba(217,164,65,.25);
+    outline-offset:5px;
+    border-radius:18px;
+    padding:38px 20px 44px;
+    background:rgba(0,0,0,.10);
+    box-shadow:0 0 60px rgba(0,0,0,.35) inset;
+  }
+  .corner{position:absolute;width:54px;height:54px;opacity:.9}
+  .corner svg{width:100%;height:100%}
+  .c-tl{top:22px;left:12px}
+  .c-tr{top:22px;right:12px;transform:scaleX(-1)}
+  .c-bl{bottom:48px;left:12px;transform:scaleY(-1)}
+  .c-br{bottom:48px;right:12px;transform:scale(-1,-1)}
+
+  .logo{width:126px;height:auto;margin:0 auto 6px;display:block;
+        filter:drop-shadow(0 0 18px rgba(240,207,138,.35))}
+  .blessing{
+    font-family:'Marcellus',serif;
+    font-size:.82rem;
+    letter-spacing:.32em;
+    text-transform:uppercase;
+    color:var(--gold-light);
+    margin-top:10px;
+  }
+  .blessing-assamese{
+    font-size:1.15rem;
+    color:var(--gold-light);
+    margin-top:4px;
+    letter-spacing:.08em;
+  }
+  .divider{
+    display:flex;align-items:center;justify-content:center;gap:12px;
+    margin:26px auto;
+  }
+  .divider .line{height:1px;width:70px;background:linear-gradient(90deg,transparent,var(--gold));}
+  .divider .line.r{background:linear-gradient(90deg,var(--gold),transparent)}
+  .divider .dot{color:var(--gold);font-size:.9rem}
+
+  .invite-line{
+    font-size:1.05rem;
+    font-style:italic;
+    color:#ffe9c9;
+    line-height:1.7;
+    max-width:34ch;
+    margin:0 auto;
+  }
+  .names{margin:26px 0 8px}
+  .name{
+    font-family:'Great Vibes',cursive;
+    font-size:clamp(2.6rem, 11vw, 3.4rem);
+    color:var(--gold-light);
+    line-height:1.25;
+    text-shadow:0 2px 14px rgba(0,0,0,.4);
+  }
+  .amp{
+    font-family:'Great Vibes',cursive;
+    font-size:1.9rem;
+    color:var(--crimson);
+    display:block;
+    margin:2px 0;
+    text-shadow:0 0 12px rgba(255,180,190,.35);
+  }
+  .weds-note{
+    font-family:'Marcellus',serif;
+    font-size:.8rem;letter-spacing:.3em;text-transform:uppercase;
+    color:#f3d9a4;margin-top:14px;
+  }
+
+  .event{
+    margin:34px auto 0;
+    padding:26px 18px;
+    border:1px solid rgba(217,164,65,.45);
+    border-radius:14px;
+    background:linear-gradient(180deg, rgba(255,246,234,.06), rgba(255,246,234,.02));
+    max-width:400px;
+  }
+  .event h2{
+    font-family:'Marcellus',serif;
+    font-size:.9rem;letter-spacing:.34em;text-transform:uppercase;
+    color:var(--gold);
+    margin-bottom:14px;
+  }
+  .event .date{
+    font-size:1.7rem;font-weight:600;color:var(--cream);line-height:1.3;
+  }
+  .event .day{font-style:italic;font-size:1.05rem;color:#ffe9c9}
+  .event .venue{font-size:1.15rem;margin-top:10px;color:#ffe9c9;line-height:1.5}
+  .map-link{
+    display:inline-block;margin-top:14px;
+    font-family:'Marcellus',serif;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--gold-light);text-decoration:none;
+    border:1px solid rgba(217,164,65,.6);border-radius:999px;
+    padding:8px 18px;
+    transition:background .25s,color .25s;
+  }
+  .map-link:hover{background:var(--gold);color:var(--maroon)}
+
+  .countdown{margin:36px auto 0;max-width:420px}
+  .countdown h3{
+    font-family:'Marcellus',serif;font-size:.78rem;letter-spacing:.3em;
+    text-transform:uppercase;color:var(--gold);margin-bottom:14px;
+  }
+  .cd-grid{display:flex;justify-content:center;gap:10px}
+  .cd-cell{
+    min-width:64px;padding:10px 6px;
+    border:1px solid rgba(217,164,65,.4);border-radius:10px;
+    background:rgba(0,0,0,.18);
+  }
+  .cd-num{font-family:'Marcellus',serif;font-size:1.5rem;color:var(--gold-light)}
+  .cd-lbl{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:#ffd9b0;margin-top:2px}
+
+  .families{
+    margin-top:36px;font-size:1.05rem;font-style:italic;color:#ffe9c9;line-height:1.8;
+  }
+  .footer-om{margin-top:30px;color:var(--gold);font-size:1.5rem}
+  .footer-note{
+    font-family:'Marcellus',serif;font-size:.7rem;letter-spacing:.26em;
+    text-transform:uppercase;color:rgba(240,207,138,.75);margin-top:8px;
+  }
+
+  /* gentle entrance animation — plays once the invite is opened.
+     Final visible state is static so content shows even if animations can't run. */
+  .fade{opacity:0;transform:translateY(14px)}
+  body.opened .fade{opacity:1;transform:none;animation:up .9s ease both}
+  .d1{animation-delay:.15s}.d2{animation-delay:.35s}.d3{animation-delay:.55s}
+  .d4{animation-delay:.75s}.d5{animation-delay:.95s}.d6{animation-delay:1.15s}
+  @keyframes up{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+  @media (prefers-reduced-motion: reduce){.fade{opacity:1;transform:none}body.opened .fade{animation:none}}
+
+  /* ── opening veil (tap to open) ── */
+  .veil{position:fixed;inset:0;z-index:50;display:flex;align-items:center;justify-content:center;cursor:pointer}
+  .door{
+    position:absolute;top:0;bottom:0;width:50.6%;
+    background:
+      radial-gradient(ellipse at 50% 30%, #8a0f26 0%, transparent 60%),
+      linear-gradient(180deg,#4a0810 0%,#6d0b1b 50%,#4a0810 100%);
+    transition:transform 1.5s cubic-bezier(.77,0,.18,1);
+  }
+  .door-l{left:0;border-right:1px solid rgba(217,164,65,.7);box-shadow:inset -18px 0 30px rgba(0,0,0,.35)}
+  .door-r{right:0;border-left:1px solid rgba(217,164,65,.7);box-shadow:inset 18px 0 30px rgba(0,0,0,.35)}
+  .veil.open .door-l{transform:translateX(-103%)}
+  .veil.open .door-r{transform:translateX(103%)}
+  .veil-center{position:relative;z-index:2;text-align:center;padding:0 24px;transition:opacity .45s ease}
+  .veil.open .veil-center{opacity:0}
+  .monogram{
+    width:120px;height:120px;margin:0 auto 18px;border-radius:50%;
+    border:1.5px solid var(--gold);outline:1px solid rgba(217,164,65,.35);outline-offset:5px;
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Great Vibes',cursive;font-size:2.1rem;color:var(--gold-light);
+    text-shadow:0 2px 10px rgba(0,0,0,.45);
+  }
+  .veil-sub{font-size:1.1rem;color:var(--gold-light);letter-spacing:.08em;margin-bottom:26px}
+  .open-btn{
+    font-family:'Marcellus',serif;font-size:.78rem;letter-spacing:.3em;text-transform:uppercase;
+    color:var(--gold-light);background:transparent;border:1px solid var(--gold);
+    border-radius:999px;padding:13px 30px;cursor:pointer;
+    animation:pulse 2.2s ease-in-out infinite;
+  }
+  @keyframes pulse{
+    0%,100%{box-shadow:0 0 0 0 rgba(217,164,65,.45)}
+    50%{box-shadow:0 0 0 12px rgba(217,164,65,0)}
+  }
+  @media (prefers-reduced-motion: reduce){.open-btn{animation:none}}
+
+  /* ── music toggle ── */
+  .music-btn{
+    position:fixed;right:16px;bottom:16px;z-index:40;
+    width:46px;height:46px;border-radius:50%;
+    border:1px solid var(--gold);background:rgba(74,8,16,.85);
+    color:var(--gold-light);font-size:1.15rem;cursor:pointer;
+    display:none;align-items:center;justify-content:center;
+    box-shadow:0 2px 12px rgba(0,0,0,.4);
+  }
+  body.opened .music-btn{display:flex}
+
+  /* ── RSVP button ── */
+  .rsvp{margin-top:36px}
+  .rsvp-lead{font-size:1.05rem;font-style:italic;color:#ffe9c9;margin-bottom:14px}
+  .rsvp-btn{
+    display:inline-flex;align-items:center;gap:10px;
+    font-family:'Marcellus',serif;font-size:.8rem;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--maroon);background:linear-gradient(180deg,var(--gold-light),var(--gold));
+    text-decoration:none;border-radius:999px;padding:14px 26px;
+    box-shadow:0 4px 18px rgba(0,0,0,.35);
+    transition:transform .2s ease;
+  }
+  .rsvp-btn:active{transform:scale(.97)}
+  .rsvp-btn svg{width:18px;height:18px;flex:none}
+</style>
+</head>
+<body>
+
+<!-- ── opening veil ── -->
+<div class="veil" id="veil" role="button" aria-label="Open the invitation">
+  <div class="door door-l"></div>
+  <div class="door door-r"></div>
+  <div class="veil-center">
+    <div class="monogram">A&nbsp;♥&nbsp;T</div>
+    <p class="veil-sub">॥ শুভ বিবাহ ॥</p>
+    <button class="open-btn" type="button">Tap to Open Invitation</button>
+  </div>
+</div>
+<noscript><style>.veil{display:none}.fade{opacity:1;transform:none}</style></noscript>
+
+<audio id="music" loop preload="auto" src="music.mp3"></audio>
+<button class="music-btn" id="music-btn" type="button" aria-label="Toggle music">🔊</button>
+
+<div class="page">
+
+  <!-- corner flourishes -->
+  <div class="corner c-tl"><svg viewBox="0 0 60 60" fill="none"><path d="M2 58 C2 20 20 2 58 2" stroke="#d9a441" stroke-width="1.4"/><path d="M10 58 C10 26 26 10 58 10" stroke="#d9a441" stroke-width=".8" opacity=".6"/><circle cx="2" cy="58" r="2.4" fill="#d9a441"/><circle cx="58" cy="2" r="2.4" fill="#d9a441"/></svg></div>
+  <div class="corner c-tr"><svg viewBox="0 0 60 60" fill="none"><path d="M2 58 C2 20 20 2 58 2" stroke="#d9a441" stroke-width="1.4"/><path d="M10 58 C10 26 26 10 58 10" stroke="#d9a441" stroke-width=".8" opacity=".6"/><circle cx="2" cy="58" r="2.4" fill="#d9a441"/><circle cx="58" cy="2" r="2.4" fill="#d9a441"/></svg></div>
+  <div class="corner c-bl"><svg viewBox="0 0 60 60" fill="none"><path d="M2 58 C2 20 20 2 58 2" stroke="#d9a441" stroke-width="1.4"/><path d="M10 58 C10 26 26 10 58 10" stroke="#d9a441" stroke-width=".8" opacity=".6"/><circle cx="2" cy="58" r="2.4" fill="#d9a441"/><circle cx="58" cy="2" r="2.4" fill="#d9a441"/></svg></div>
+  <div class="corner c-br"><svg viewBox="0 0 60 60" fill="none"><path d="M2 58 C2 20 20 2 58 2" stroke="#d9a441" stroke-width="1.4"/><path d="M10 58 C10 26 26 10 58 10" stroke="#d9a441" stroke-width=".8" opacity=".6"/><circle cx="2" cy="58" r="2.4" fill="#d9a441"/><circle cx="58" cy="2" r="2.4" fill="#d9a441"/></svg></div>
+
+  <div class="frame">
+
+    <!-- ══ Maa Durga logo — flame tilak (third eye), brows & eyes ══ -->
+    <svg class="logo fade d1" viewBox="0 0 200 172" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Eyes of Maa Durga — flame tilak, bindu and kohl-lined eyes">
+      <defs>
+        <linearGradient id="flameRed" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#ff2d3e"/>
+          <stop offset="100%" stop-color="#c9184a"/>
+        </linearGradient>
+      </defs>
+
+      <!-- flame tilak (third eye) -->
+      <path d="M100 6 C 88 22, 83 38, 100 56 C 117 38, 112 22, 100 6 Z" fill="url(#flameRed)"/>
+      <circle cx="100" cy="40" r="7.5" fill="#f2e2b0"/>
+
+      <!-- crescent below the flame -->
+      <path d="M66 62 C 83 90, 117 90, 134 62 C 120 82, 80 82, 66 62 Z" fill="url(#flameRed)"/>
+
+      <!-- bindu between the brows -->
+      <circle cx="100" cy="106" r="8" fill="#f2e2b0"/>
+
+      <!-- eyebrows -->
+      <path d="M97 124 C 68 96, 34 98, 6 126 C 34 110, 64 112, 95 133 Z" fill="#f5e9d6"/>
+      <path d="M103 124 C 132 96, 166 98, 194 126 C 166 110, 136 112, 105 133 Z" fill="#f5e9d6"/>
+
+      <!-- left eye -->
+      <path d="M90 152 C 76 134, 40 136, 22 154 C 38 170, 74 170, 90 152 Z"
+            fill="#f4cfe0" stroke="#f5e9d6" stroke-width="6" stroke-linejoin="round"/>
+      <path d="M24 152 C 14 150, 8 147, 2 141" fill="none" stroke="#f5e9d6" stroke-width="5" stroke-linecap="round"/>
+      <circle cx="56" cy="153" r="12" fill="#2b040a"/>
+
+      <!-- right eye -->
+      <path d="M110 152 C 124 134, 160 136, 178 154 C 162 170, 126 170, 110 152 Z"
+            fill="#f4cfe0" stroke="#f5e9d6" stroke-width="6" stroke-linejoin="round"/>
+      <path d="M176 152 C 186 150, 192 147, 198 141" fill="none" stroke="#f5e9d6" stroke-width="5" stroke-linecap="round"/>
+      <circle cx="144" cy="153" r="12" fill="#2b040a"/>
+    </svg>
+
+    <p class="blessing fade d1">With the blessings of Maa Durga</p>
+    <p class="blessing-assamese fade d1">॥ শুভ বিবাহ ॥</p>
+
+    <div class="divider fade d2"><span class="line"></span><span class="dot">✦</span><span class="line r"></span></div>
+
+    <p class="invite-line fade d2">
+      Together with our families, we joyfully invite you
+      to share in our happiness as we unite in marriage
+    </p>
+
+    <div class="names fade d3">
+      <div class="name">Anushuwa Kar</div>
+      <span class="amp">weds</span>
+      <div class="name">Twamanish Das</div>
+    </div>
+
+    <div class="divider fade d3"><span class="line"></span><span class="dot">✦</span><span class="line r"></span></div>
+
+    <!-- Wedding -->
+    <section class="event fade d4">
+      <h2>Wedding Ceremony</h2>
+      <p class="day">Sunday</p>
+      <p class="date">13th December 2026</p>
+      <p class="venue">Lakhimpur, Assam</p>
+      <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Lakhimpur%2C+Assam" target="_blank" rel="noopener">View on Map</a>
+    </section>
+
+    <!-- Reception -->
+    <section class="event fade d5">
+      <h2>Reception</h2>
+      <p class="day">Wednesday</p>
+      <p class="date">16th December 2026</p>
+      <p class="venue">Hotel Garden Treat<br>Dibrugarh, Assam</p>
+      <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Hotel+Garden+Treat%2C+Dibrugarh" target="_blank" rel="noopener">View on Map</a>
+    </section>
+
+    <!-- Countdown -->
+    <div class="countdown fade d6">
+      <h3>Counting down to the big day</h3>
+      <div class="cd-grid" id="cd">
+        <div class="cd-cell"><div class="cd-num" id="cd-d">–</div><div class="cd-lbl">Days</div></div>
+        <div class="cd-cell"><div class="cd-num" id="cd-h">–</div><div class="cd-lbl">Hours</div></div>
+        <div class="cd-cell"><div class="cd-num" id="cd-m">–</div><div class="cd-lbl">Mins</div></div>
+        <div class="cd-cell"><div class="cd-num" id="cd-s">–</div><div class="cd-lbl">Secs</div></div>
+      </div>
+    </div>
+
+    <!-- RSVP via WhatsApp -->
+    <div class="rsvp fade d6">
+      <p class="rsvp-lead">Kindly let us know you're coming —</p>
+      <a class="rsvp-btn"
+         href="https://wa.me/91XXXXXXXXXX?text=Namaskar!%20We%20are%20delighted%20to%20attend%20the%20wedding%20of%20Anushuwa%20%26%20Twamanish%20on%2013th%20December%202026.%20-%20"
+         target="_blank" rel="noopener">
+        <svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 3C9.4 3 4 8.3 4 14.9c0 2.6.8 5 2.3 7L4 29l7.3-2.2c1.5.8 3.1 1.2 4.7 1.2 6.6 0 12-5.3 12-11.9S22.6 3 16 3zm0 21.8c-1.5 0-3-.4-4.3-1.1l-.3-.2-4.3 1.3 1.3-4.1-.2-.3c-1.3-1.6-2-3.6-2-5.6C6.2 9.4 10.6 5.1 16 5.1s9.8 4.4 9.8 9.8-4.4 9.9-9.8 9.9zm5.4-7.4c-.3-.1-1.7-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.4-1.5-.9-.8-1.5-1.8-1.6-2.1-.2-.3 0-.5.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.7-.4z"/></svg>
+        RSVP on WhatsApp
+      </a>
+    </div>
+
+    <p class="families fade d6">
+      Your presence and blessings will make our celebration complete.
+    </p>
+
+    <div class="footer-om fade d6">ॐ</div>
+    <p class="footer-note fade d6">Kar &amp; Das Families</p>
+  </div>
+</div>
+
+<script>
+  (function(){
+    var target = new Date(2026, 11, 13, 0, 0, 0); // 13 Dec 2026, local time
+    var d=document.getElementById('cd-d'),h=document.getElementById('cd-h'),
+        m=document.getElementById('cd-m'),s=document.getElementById('cd-s');
+    function pad(n){return n<10?'0'+n:''+n}
+    function tick(){
+      var diff = target - new Date();
+      if(diff <= 0){
+        document.getElementById('cd').innerHTML =
+          '<div class="cd-cell" style="min-width:200px"><div class="cd-num">It’s here! ❤</div></div>';
+        clearInterval(t); return;
+      }
+      d.textContent = Math.floor(diff/864e5);
+      h.textContent = pad(Math.floor(diff/36e5)%24);
+      m.textContent = pad(Math.floor(diff/6e4)%60);
+      s.textContent = pad(Math.floor(diff/1e3)%60);
+    }
+    var t = setInterval(tick, 1000); tick();
+  })();
+
+  /* ── opening veil + music ── */
+  (function(){
+    var veil = document.getElementById('veil'),
+        audio = document.getElementById('music'),
+        mBtn = document.getElementById('music-btn'),
+        musicOk = true;
+
+    audio.addEventListener('error', function(){ musicOk = false; mBtn.style.display = 'none'; });
+
+    function openInvite(){
+      if (document.body.classList.contains('opened')) return;
+      document.body.classList.add('opened');
+      veil.classList.add('open');
+      setTimeout(function(){ veil.style.display = 'none'; }, 1600);
+      if (musicOk){
+        var p = audio.play();
+        if (p && p.catch) p.catch(function(){ mBtn.textContent = '🔇'; });
+      }
+    }
+    veil.addEventListener('click', openInvite);
+
+    mBtn.addEventListener('click', function(){
+      if (audio.paused){ audio.play(); mBtn.textContent = '🔊'; }
+      else { audio.pause(); mBtn.textContent = '🔇'; }
+    });
+  })();
+</script>
+</body>
+</html>
