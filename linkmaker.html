@@ -49,21 +49,48 @@
     <p class="copied" id="msg"></p>
   </div>
 <script>
+(function(){
   var base = location.origin + '/';
-  var name = document.getElementById('name'), link = document.getElementById('link'),
+  var nameInput = document.getElementById('name'), link = document.getElementById('link'),
       wa = document.getElementById('wa'), msg = document.getElementById('msg');
   function update(){
-    var n = name.value.trim();
+    var n = nameInput.value.trim();
     var url = n ? base + '?guest=' + encodeURIComponent(n) : base;
     link.textContent = url;
     wa.href = 'https://wa.me/?text=' + encodeURIComponent(url);
   }
-  name.addEventListener('input', update); update();
+  nameInput.addEventListener('input', update); update();
+
+  function legacyCopy(t){
+    var ta = document.createElement('textarea');
+    ta.value = t;
+    ta.setAttribute('readonly', '');
+    ta.style.cssText = 'position:fixed;top:0;left:0;opacity:0';
+    document.body.appendChild(ta);
+    ta.focus(); ta.select(); ta.setSelectionRange(0, t.length);
+    var ok = false;
+    try { ok = document.execCommand('copy'); } catch(e){}
+    document.body.removeChild(ta);
+    return ok;
+  }
+  function flash(t){ msg.textContent = t; setTimeout(function(){ msg.textContent = ''; }, 2500); }
+
   document.getElementById('copy').addEventListener('click', function(){
-    navigator.clipboard.writeText(link.textContent).then(function(){
-      msg.textContent = 'Copied!'; setTimeout(function(){ msg.textContent = ''; }, 1500);
-    });
+    var t = link.textContent;
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(t).then(function(){ flash('Copied!'); },
+        function(){ flash(legacyCopy(t) ? 'Copied!' : 'Long-press the link above to copy it'); });
+    } else {
+      flash(legacyCopy(t) ? 'Copied!' : 'Long-press the link above to copy it');
+    }
   });
+
+  // tapping the link selects it, so manual copy is one long-press away
+  link.addEventListener('click', function(){
+    var r = document.createRange(); r.selectNodeContents(link);
+    var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+  });
+})();
 </script>
 </body>
 </html>
