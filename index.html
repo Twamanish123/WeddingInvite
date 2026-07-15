@@ -229,6 +229,24 @@
   }
   body.opened .music-btn{display:flex}
 
+  /* ── falling petals ── */
+  .petals{position:fixed;inset:0;z-index:6;overflow:hidden;pointer-events:none}
+  .petal{
+    position:absolute;top:-8vh;border-radius:0 100% 0 100%;
+    animation-name:petalFall;animation-timing-function:linear;animation-iteration-count:infinite;
+    will-change:transform,opacity;
+  }
+  @keyframes petalFall{
+    0%   {transform:translate(0,-8vh) rotate(0deg);opacity:0}
+    8%   {opacity:.85}
+    25%  {transform:translate(var(--sway),25vh) rotate(90deg)}
+    50%  {transform:translate(calc(var(--sway) * -1),50vh) rotate(180deg)}
+    75%  {transform:translate(var(--sway),75vh) rotate(270deg)}
+    92%  {opacity:.85}
+    100% {transform:translate(0,110vh) rotate(360deg);opacity:0}
+  }
+  @media (prefers-reduced-motion: reduce){.petals{display:none}}
+
   /* ── RSVP button ── */
   .rsvp{margin-top:36px}
   .rsvp-lead{font-size:1.05rem;font-style:italic;color:#ffe9c9;margin-bottom:14px}
@@ -261,6 +279,8 @@
 
 <audio id="music" loop preload="auto" src="music.mp3"></audio>
 <button class="music-btn" id="music-btn" type="button" aria-label="Toggle music">🔊</button>
+
+<div class="petals" id="petals" aria-hidden="true"></div>
 
 <div class="page">
 
@@ -409,6 +429,34 @@
     document.body.classList.add('has-guest');
   })();
 
+  /* ── falling petals ── */
+  function spawnPetals(){
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var layer = document.getElementById('petals');
+    var colors = [
+      'linear-gradient(135deg, #f0cf8a, #d9a441)',
+      'linear-gradient(135deg, #ff8fa3, #c9184a)',
+      'linear-gradient(135deg, #ffb347, #c9184a)'
+    ];
+    var n = window.innerWidth < 480 ? 10 : 14;
+    for (var i = 0; i < n; i++){
+      var p = document.createElement('div');
+      p.className = 'petal';
+      var size = 12 + Math.random() * 10;
+      var dur = 9 + Math.random() * 7;
+      var delay = -Math.random() * dur;
+      var sway = (20 + Math.random() * 40) * (Math.random() < 0.5 ? -1 : 1);
+      p.style.left = (Math.random() * 96).toFixed(1) + 'vw';
+      p.style.width = size.toFixed(1) + 'px';
+      p.style.height = (size * 1.2).toFixed(1) + 'px';
+      p.style.background = colors[i % colors.length];
+      p.style.setProperty('--sway', sway.toFixed(0) + 'px');
+      p.style.animationDuration = dur.toFixed(1) + 's';
+      p.style.animationDelay = delay.toFixed(1) + 's';
+      layer.appendChild(p);
+    }
+  }
+
   /* ── opening veil + music ── */
   (function(){
     var veil = document.getElementById('veil'),
@@ -423,6 +471,7 @@
       document.body.classList.add('opened');
       veil.classList.add('open');
       setTimeout(function(){ veil.style.display = 'none'; }, 1600);
+      spawnPetals();
       if (musicOk){
         var p = audio.play();
         if (p && p.catch) p.catch(function(){ mBtn.textContent = '🔇'; });
