@@ -260,6 +260,58 @@
   }
   .rsvp-btn:active{transform:scale(.97)}
   .rsvp-btn svg{width:18px;height:18px;flex:none}
+
+  /* ── Find Us — spinning globe ── */
+  .find-us{margin-top:40px}
+  .find-us h3{
+    font-family:'Marcellus',serif;font-size:.78rem;letter-spacing:.3em;
+    text-transform:uppercase;color:var(--gold);margin-bottom:20px;
+  }
+  .globe-stage{width:150px;height:150px;margin:0 auto;position:relative;perspective:700px}
+  .globe-sphere{
+    position:absolute;inset:0;border-radius:50%;
+    transform-style:preserve-3d;animation:globeSpin 9s linear infinite;
+  }
+  .globe-base{
+    position:absolute;inset:0;border-radius:50%;
+    background:radial-gradient(circle at 34% 30%, rgba(240,207,138,.28), rgba(92,10,20,.92) 72%);
+    border:1px solid rgba(217,164,65,.55);
+    box-shadow:0 0 26px rgba(217,164,65,.22) inset, 0 4px 20px rgba(0,0,0,.4);
+  }
+  .meridian{position:absolute;inset:0;border:1px solid rgba(217,164,65,.4);border-radius:50%}
+  .meridian.m0{transform:rotateY(0deg)}
+  .meridian.m1{transform:rotateY(30deg)}
+  .meridian.m2{transform:rotateY(60deg)}
+  .meridian.m3{transform:rotateY(90deg)}
+  .meridian.m4{transform:rotateY(120deg)}
+  .meridian.m5{transform:rotateY(150deg)}
+  .latitude{position:absolute;left:6%;right:6%;border:1px solid rgba(217,164,65,.3);border-radius:50%}
+  .latitude.lat-eq{top:0;bottom:0}
+  .latitude.lat-n{top:22%;bottom:52%}
+  .latitude.lat-s{top:52%;bottom:22%}
+  @keyframes globeSpin{from{transform:rotateY(0deg)}to{transform:rotateY(360deg)}}
+
+  .globe-pin{position:absolute;top:8%;left:50%;transform:translateX(-50%);z-index:2}
+  .pin-dot{
+    display:block;width:10px;height:10px;border-radius:50%;
+    background:radial-gradient(circle at 35% 30%, #fff6ea, #d9184a 60%, #7a0c1e);
+    box-shadow:0 0 10px rgba(255,143,163,.8);
+  }
+  .pin-pulse{
+    position:absolute;top:-6px;left:-6px;width:22px;height:22px;border-radius:50%;
+    border:1.5px solid rgba(255,143,163,.7);animation:pinPulse 2.2s ease-out infinite;
+  }
+  @keyframes pinPulse{0%{transform:scale(.3);opacity:1}100%{transform:scale(1.8);opacity:0}}
+
+  .find-us-label{margin-top:18px;font-style:italic;font-size:1.1rem;color:#ffe9c9}
+  .find-us-sub{font-size:.95rem;color:#f3d9a4;margin-top:2px}
+  .find-us-links{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:16px}
+  .find-us-links .map-link{padding:9px 16px;font-size:.68rem}
+
+  @media (prefers-reduced-motion: reduce){
+    .globe-sphere{animation:none;transform:rotateY(15deg)}
+    .pin-pulse{animation:none;display:none}
+  }
 </style>
 </head>
 <body>
@@ -387,6 +439,35 @@
         RSVP on WhatsApp
       </a>
     </div>
+
+    <!-- Find Us — spinning globe -->
+    <section class="find-us fade d6">
+      <h3>Find Us</h3>
+      <div class="globe-stage" aria-hidden="true">
+        <div class="globe-sphere">
+          <div class="globe-base"></div>
+          <div class="meridian m0"></div>
+          <div class="meridian m1"></div>
+          <div class="meridian m2"></div>
+          <div class="meridian m3"></div>
+          <div class="meridian m4"></div>
+          <div class="meridian m5"></div>
+          <div class="latitude lat-eq"></div>
+          <div class="latitude lat-n"></div>
+          <div class="latitude lat-s"></div>
+        </div>
+        <div class="globe-pin">
+          <span class="pin-pulse"></span>
+          <span class="pin-dot"></span>
+        </div>
+      </div>
+      <p class="find-us-label">Assam, India</p>
+      <p class="find-us-sub">Lakhimpur &amp; Dibrugarh</p>
+      <div class="find-us-links">
+        <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Lakhimpur%2C+Assam" target="_blank" rel="noopener">Wedding Venue</a>
+        <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Hotel+Garden+Treat%2C+Dibrugarh" target="_blank" rel="noopener">Reception Venue</a>
+      </div>
+    </section>
 
     <p class="families fade d6">
       Your presence and blessings will make our celebration complete.
