@@ -150,6 +150,55 @@
   .event-rsvp{background:linear-gradient(180deg,var(--gold-light),var(--gold));color:var(--maroon);border:none}
   .event-rsvp:hover{opacity:.9;background:linear-gradient(180deg,var(--gold-light),var(--gold));color:var(--maroon)}
 
+  /* ── RSVP form ── */
+  .rsvp{margin-top:40px;text-align:left}
+  .rsvp h3{
+    font-family:'Marcellus',serif;font-size:.78rem;letter-spacing:.3em;text-transform:uppercase;
+    color:var(--gold);margin-bottom:8px;text-align:center;
+  }
+  .rsvp-lead{font-size:1.05rem;font-style:italic;color:#ffe9c9;margin-bottom:22px;text-align:center}
+  .rsvp-form{
+    max-width:400px;margin:0 auto;
+    border:1px solid rgba(217,164,65,.4);border-radius:14px;
+    background:linear-gradient(180deg, rgba(255,246,234,.06), rgba(255,246,234,.02));
+    padding:22px 20px;
+  }
+  .rsvp-field{margin-bottom:18px}
+  .rsvp-field:last-of-type{margin-bottom:0}
+  .rsvp-input, .rsvp-select{
+    width:100%;font:inherit;font-size:1.05rem;color:var(--cream);
+    background:rgba(0,0,0,.22);border:1px solid rgba(217,164,65,.45);border-radius:8px;
+    padding:11px 14px;outline:none;
+  }
+  .rsvp-select{appearance:none;-webkit-appearance:none}
+  .rsvp-label{
+    display:block;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;
+    color:#f3d9a4;margin-bottom:8px;
+  }
+  .rsvp-options{display:flex;gap:8px;flex-wrap:wrap}
+  .rsvp-options label, .rsvp-scale label{
+    display:flex;align-items:center;gap:6px;
+    font-size:.92rem;color:#ffe9c9;
+    border:1px solid rgba(217,164,65,.4);border-radius:999px;
+    padding:7px 12px;cursor:pointer;
+  }
+  .rsvp-options input, .rsvp-scale input{accent-color:var(--gold)}
+  .rsvp-scale{display:flex;gap:6px}
+  .rsvp-scale label{padding:7px 13px}
+  .rsvp-submit{
+    display:block;width:100%;margin-top:22px;
+    font-family:'Marcellus',serif;font-size:.8rem;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--maroon);background:linear-gradient(180deg,var(--gold-light),var(--gold));
+    border:none;border-radius:999px;padding:14px 20px;cursor:pointer;
+    box-shadow:0 4px 18px rgba(0,0,0,.35);transition:transform .2s ease,opacity .2s ease;
+  }
+  .rsvp-submit:active{transform:scale(.97)}
+  .rsvp-submit:disabled{opacity:.6;cursor:default}
+  .rsvp-status{text-align:center;margin-top:14px;font-style:italic;color:#ffe9c9;min-height:1.4em}
+  .rsvp-status.error{color:#ffb3b3}
+  .rsvp-alt{text-align:center;margin-top:16px;font-size:.92rem;color:#f3d9a4}
+  .rsvp-alt a{color:var(--gold-light)}
+
   .countdown{margin:36px auto 0;max-width:420px}
   .countdown h3{
     font-family:'Marcellus',serif;font-size:.78rem;letter-spacing:.3em;
@@ -346,9 +395,7 @@
       <p class="venue">Lakhimpur, Assam</p>
       <div class="event-links">
         <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Lakhimpur%2C+Assam" target="_blank" rel="noopener">View on Map</a>
-        <a class="map-link event-rsvp"
-           href="https://wa.me/919145736541?text=Namaskar!%20We%20are%20delighted%20to%20attend%20the%20wedding%20of%20Anushuwa%20%26%20Twamanish%20on%2013th%20December%202026.%20-%20"
-           target="_blank" rel="noopener">RSVP</a>
+        <a class="map-link event-rsvp" href="#rsvp">RSVP</a>
       </div>
     </section>
 
@@ -360,9 +407,7 @@
       <p class="venue">Hotel Garden Treat<br>Dibrugarh, Assam</p>
       <div class="event-links">
         <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Hotel+Garden+Treat%2C+Dibrugarh" target="_blank" rel="noopener">View on Map</a>
-        <a class="map-link event-rsvp"
-           href="https://wa.me/919145736541?text=Namaskar!%20We%20are%20delighted%20to%20attend%20the%20wedding%20of%20Anushuwa%20%26%20Twamanish%20on%2013th%20December%202026.%20-%20"
-           target="_blank" rel="noopener">RSVP</a>
+        <a class="map-link event-rsvp" href="#rsvp">RSVP</a>
       </div>
     </section>
 
@@ -376,6 +421,63 @@
         <div class="cd-cell"><div class="cd-num" id="cd-s">–</div><div class="cd-lbl">Secs</div></div>
       </div>
     </div>
+
+    <!-- RSVP -->
+    <section class="rsvp fade d6" id="rsvp">
+      <h3>RSVP</h3>
+      <p class="rsvp-lead">Kindly let us know you're coming —</p>
+      <form class="rsvp-form" id="rsvp-form">
+        <div class="rsvp-field">
+          <label class="rsvp-label" for="rsvp-name">Full Name</label>
+          <input class="rsvp-input" type="text" id="rsvp-name" name="entry.890998046" placeholder="Your name" required>
+        </div>
+
+        <div class="rsvp-field">
+          <label class="rsvp-label">Will you be attending?</label>
+          <div class="rsvp-options">
+            <label><input type="radio" name="entry.1464569665" value="Yes, I will be there" required> Yes</label>
+            <label><input type="radio" name="entry.1464569665" value="No, I cannot make it"> No</label>
+            <label><input type="radio" name="entry.1464569665" value="Maybe/Pending"> Maybe</label>
+          </div>
+        </div>
+
+        <div class="rsvp-field">
+          <label class="rsvp-label" for="rsvp-guests">How many guests will you be bringing?</label>
+          <select class="rsvp-select" id="rsvp-guests" name="entry.1960254684">
+            <option value="0 (Just me)">Just me</option>
+            <option value="1">+1</option>
+            <option value="2">+2</option>
+            <option value="3">+3</option>
+            <option value="4">+4</option>
+            <option value="5+">5+</option>
+          </select>
+        </div>
+
+        <div class="rsvp-field">
+          <label class="rsvp-label">Meal preference</label>
+          <div class="rsvp-options">
+            <label><input type="radio" name="entry.1566397773" value="Vegetarian"> Veg</label>
+            <label><input type="radio" name="entry.1566397773" value="Non-Vegetarian"> Non-Veg</label>
+            <label><input type="radio" name="entry.1566397773" value="No Preference"> No preference</label>
+          </div>
+        </div>
+
+        <div class="rsvp-field">
+          <label class="rsvp-label">How excited are you for the event?</label>
+          <div class="rsvp-scale">
+            <label><input type="radio" name="entry.2131078935" value="1">1</label>
+            <label><input type="radio" name="entry.2131078935" value="2">2</label>
+            <label><input type="radio" name="entry.2131078935" value="3">3</label>
+            <label><input type="radio" name="entry.2131078935" value="4">4</label>
+            <label><input type="radio" name="entry.2131078935" value="5">5</label>
+          </div>
+        </div>
+
+        <button class="rsvp-submit" type="submit">Send RSVP</button>
+      </form>
+      <p class="rsvp-status" id="rsvp-status" role="status" aria-live="polite"></p>
+      <p class="rsvp-alt">Prefer WhatsApp? <a href="https://wa.me/919145736541?text=Namaskar!%20We%20are%20delighted%20to%20attend%20the%20wedding%20of%20Anushuwa%20%26%20Twamanish%20on%2013th%20December%202026.%20-%20" target="_blank" rel="noopener">Message us instead</a></p>
+    </section>
 
     <p class="families fade d6">
       Your presence and blessings will make our celebration complete.
@@ -445,6 +547,37 @@
       layer.appendChild(p);
     }
   }
+
+  /* ── RSVP form submission ── */
+  (function(){
+    var form = document.getElementById('rsvp-form'),
+        status = document.getElementById('rsvp-status'),
+        submitBtn = form.querySelector('.rsvp-submit');
+    var ACTION_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSeKM8YOal3afGYua34x0sivbeX1nb5DnXWBwKLPZmZ01b0DrA/formResponse';
+
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending…';
+      status.className = 'rsvp-status';
+      status.textContent = '';
+
+      var data = new FormData(form);
+      fetch(ACTION_URL, { method: 'POST', mode: 'no-cors', body: data })
+        .then(function(){
+          status.textContent = 'Thank you! Your RSVP has been recorded. ❤';
+          form.reset();
+          submitBtn.textContent = 'Send RSVP';
+          submitBtn.disabled = false;
+        })
+        .catch(function(){
+          status.className = 'rsvp-status error';
+          status.textContent = "Something went wrong — please use the WhatsApp option below.";
+          submitBtn.textContent = 'Send RSVP';
+          submitBtn.disabled = false;
+        });
+    });
+  })();
 
   /* ── opening veil + music ── */
   (function(){
