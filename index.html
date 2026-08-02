@@ -145,6 +145,10 @@
     transition:background .25s,color .25s;
   }
   .map-link:hover{background:var(--gold);color:var(--maroon)}
+  .event-links{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:14px}
+  .event-links .map-link{margin-top:0}
+  .event-rsvp{background:linear-gradient(180deg,var(--gold-light),var(--gold));color:var(--maroon);border:none}
+  .event-rsvp:hover{opacity:.9;background:linear-gradient(180deg,var(--gold-light),var(--gold));color:var(--maroon)}
 
   .countdown{margin:36px auto 0;max-width:420px}
   .countdown h3{
@@ -354,7 +358,10 @@
       <p class="day">Sunday</p>
       <p class="date">13th December 2026</p>
       <p class="venue">Lakhimpur, Assam</p>
-      <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Lakhimpur%2C+Assam" target="_blank" rel="noopener">View on Map</a>
+      <div class="event-links">
+        <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Lakhimpur%2C+Assam" target="_blank" rel="noopener">View on Map</a>
+        <a class="map-link event-rsvp" href="#rsvp">RSVP</a>
+      </div>
     </section>
 
     <!-- Reception -->
@@ -363,7 +370,10 @@
       <p class="day">Wednesday</p>
       <p class="date">16th December 2026</p>
       <p class="venue">Hotel Garden Treat<br>Dibrugarh, Assam</p>
-      <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Hotel+Garden+Treat%2C+Dibrugarh" target="_blank" rel="noopener">View on Map</a>
+      <div class="event-links">
+        <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Hotel+Garden+Treat%2C+Dibrugarh" target="_blank" rel="noopener">View on Map</a>
+        <a class="map-link event-rsvp" href="#rsvp">RSVP</a>
+      </div>
     </section>
 
     <!-- Countdown -->
@@ -378,7 +388,7 @@
     </div>
 
     <!-- RSVP via WhatsApp -->
-    <div class="rsvp fade d6">
+    <div class="rsvp fade d6" id="rsvp">
       <p class="rsvp-lead">Kindly let us know you're coming —</p>
       <a class="rsvp-btn"
          href="https://wa.me/919145736541?text=Namaskar!%20We%20are%20delighted%20to%20attend%20the%20wedding%20of%20Anushuwa%20%26%20Twamanish%20on%2013th%20December%202026.%20-%20"
